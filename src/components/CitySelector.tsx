@@ -1,21 +1,18 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { X } from 'lucide-react';
 
 const cities = [
-  'New Delhi', 'Mumbai', 'Bengaluru', 'Chennai', 'Kolkata', 'Hyderabad', 'Pune', 'Ahmedabad',
-  'Visakhapatnam', 'Vijayawada', 'Guntur', 'Tirupati', 'Itanagar', 'Tawang', 'Ziro',
-  'Guwahati', 'Dibrugarh', 'Silchar', 'Jorhat', 'Patna', 'Gaya', 'Bhagalpur', 'Muzaffarpur',
-  'Raipur', 'Bilaspur', 'Bhilai', 'Panaji', 'Margao', 'Vasco da Gama', 'Surat', 'Rajkot',
-  'Vadodara', 'Jamnagar', 'Gurugram', 'Faridabad', 'Panipat', 'Shimla', 'Manali',
-  'Dharamshala', 'Ranchi', 'Jamshedpur', 'Dhanbad', 'Mysuru', 'Mangaluru', 'Hubballi',
-  'Dharwad', 'Thiruvananthapuram', 'Kochi', 'Kozhikode', 'Bhopal', 'Indore', 'Jabalpur',
-  'Gwalior', 'Nagpur', 'Nashik', 'Aurangabad', 'Imphal', 'Shillong', 'Aizawl', 'Kohima',
-  'Dimapur', 'Bhubaneswar', 'Cuttack', 'Rourkela', 'Puri', 'Amritsar', 'Ludhiana',
-  'Jalandhar', 'Patiala', 'Jaipur', 'Jodhpur', 'Udaipur', 'Kota', 'Gangtok', 'Coimbatore',
-  'Madurai', 'Tiruchirappalli', 'Salem', 'Warangal', 'Nizamabad', 'Agartala', 'Lucknow',
-  'Kanpur', 'Varanasi', 'Agra', 'Prayagraj', 'Ghaziabad', 'Noida', 'Dehradun', 'Haridwar',
-  'Rishikesh', 'Nainital', 'Asansol', 'Durgapur', 'Siliguri', 'Darjeeling', 'Other'
+  'Delhi NCR',
+  'Chandigarh',
+  'Lucknow',
+  'Kanpur',
+  'Hyderabad',
+  'Bangalore',
+  'Kolkata',
+  'Pune',
+  'Jaipur',
+  'Chennai',
+  'Other'
 ];
 
 const CitySelector = () => {
@@ -23,9 +20,8 @@ const CitySelector = () => {
   const [selectedCity, setSelectedCity] = useState('');
 
   useEffect(() => {
-    // Clear localStorage for testing
-    localStorage.removeItem('selectedCity');
-    setTimeout(() => setIsOpen(true), 500);
+    localStorage.clear();
+    setIsOpen(true);
   }, []);
 
   const handleCitySelect = (city: string) => {
