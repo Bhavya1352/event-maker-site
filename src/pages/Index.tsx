@@ -1,13 +1,35 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from 'react';
+import ExplosionIntro from '../components/ExplosionIntro';
+import HeroSlider from '../components/HeroSlider';
+import AboutUs from '../components/AboutUs';
+import ServicesGrid from '../components/ServicesGrid';
+import CallToAction from '../components/CallToAction';
+import ServicesGallery from '../components/ServicesGallery';
+import WhyChooseUs from '../components/WhyChooseUs';
+import ContactSection from '../components/ContactSection';
 
 const Index = () => {
+  const [showContent, setShowContent] = useState(false);
+
+  const handleExplosionComplete = () => {
+    setShowContent(true);
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <>
+      {!showContent && <ExplosionIntro onComplete={handleExplosionComplete} />}
+      {showContent && (
+        <div className="content-enter">
+          <HeroSlider />
+          <AboutUs />
+          <ServicesGrid />
+          <CallToAction />
+          <ServicesGallery />
+          <WhyChooseUs />
+          <ContactSection />
+        </div>
+      )}
+    </>
   );
 };
 
