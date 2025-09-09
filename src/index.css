@@ -149,17 +149,13 @@ All colors MUST be HSL.
     100% { background: transparent; }
   }
 
-  @keyframes zoom-in {
+    @keyframes zoom-in {
     0% {
-      transform: scale(0);
+      transform: scale(0.9) translateY(20px);
       opacity: 0;
     }
-    50% {
-      transform: scale(1.1);
-      opacity: 0.8;
-    }
     100% {
-      transform: scale(1);
+      transform: scale(1) translateY(0);
       opacity: 1;
     }
   }
@@ -185,6 +181,64 @@ All colors MUST be HSL.
 
   .content-enter {
     animation: zoom-in 1s ease-out forwards;
+  }
+
+  /* Custom animations for the website */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes float-delay {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+  }
+
+  @keyframes float-delay-2 {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-25px); }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-delay {
+    animation: float-delay 8s ease-in-out infinite 2s;
+  }
+
+  .animate-float-delay-2 {
+    animation: float-delay-2 7s ease-in-out infinite 4s;
+  }
+
+  /* Bounce in animation for city selector */
+  @keyframes bounce-in {
+    0% {
+      transform: scale(0.3) translateY(-50px);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.05) translateY(0);
+    }
+    70% {
+      transform: scale(0.9);
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .animate-bounce-in {
+    animation: bounce-in 0.6s ease-out;
+  }
+
+  /* Line clamp utility */
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 }
 

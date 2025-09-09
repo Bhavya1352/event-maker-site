@@ -1,100 +1,108 @@
 import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const services = [
   {
     title: "Birthday Decoration",
-    icon: "🎂",
-    description: "Vibrant, personalized decorations for unforgettable birthday celebrations"
+    description: "Celebrate birthdays with vibrant, personalized decorations that bring joy and excitement to every detail. From balloon arches to themed setups, we create unforgettable experiences that make your special day truly shine!",
+    image: "/images/22.jpg",
+    hoverColor: "group-hover:bg-yellow-500/20"
   },
   {
     title: "Anniversary Decoration", 
-    icon: "💕",
-    description: "Elegant romantic setups to celebrate your love story"
+    description: "Celebrate love with our elegant anniversary decorations. From romantic setups to timeless details, we create a beautiful ambiance that captures the essence of your special day. Make memories to cherish forever.",
+    image: "/images/23.jpg",
+    hoverColor: "group-hover:bg-red-500/20"
   },
   {
     title: "Love/Proposal Decoration",
-    icon: "💍", 
-    description: "Perfect romantic ambiance for your special proposal moment"
+    description: "Set the perfect scene for your love proposal with romantic decor crafted to amaze. From elegant setups to personalized touches, we create an unforgettable ambiance for your special moment.",
+    image: "/images/24.jpg",
+    hoverColor: "group-hover:bg-pink-500/20"
   },
   {
     title: "First Birthday Decoration",
-    icon: "🍼",
-    description: "Magical setups to celebrate your little one's first milestone"
+    description: "Celebrate your little one's first milestone with enchanting decor that captures the joy of the day. From playful themes to elegant setups, we create a magical atmosphere for unforgettable memories.",
+    image: "/images/25.jpg",
+    hoverColor: "group-hover:bg-blue-500/20"
   },
   {
     title: "Kids Birthday Decoration",
-    icon: "🎈",
-    description: "Colorful, playful themes that spark joy and wonder"
+    description: "Make your child's birthday unforgettable with vibrant, playful decorations crafted to spark joy and wonder. From colorful balloon displays to themed setups, we create magical memories for every little guest.",
+    image: "/images/26.jpg",
+    hoverColor: "group-hover:bg-green-500/20"
   },
   {
     title: "Baby Shower Decoration",
-    icon: "👶",
-    description: "Beautiful decorations to welcome new beginnings"
+    description: "Celebrate the joy of new beginnings with our beautiful baby shower decorations. From delicate balloon arrangements to charming details, we create a warm, memorable ambiance for you and your loved ones.",
+    image: "/images/27.jpg",
+    hoverColor: "group-hover:bg-purple-500/20"
   },
   {
     title: "Balloon Bouquet",
-    icon: "🎈",
-    description: "Vibrant balloon arrangements for any celebration"
+    description: "Add a touch of joy to any celebration with our vibrant balloon bouquets. Perfectly arranged for birthdays, anniversaries, or any special occasion, they bring color, fun, and elegance to your event.",
+    image: "/images/28.jpg",
+    hoverColor: "group-hover:bg-orange-500/20"
   },
   {
     title: "Sequin Panel Decoration",
-    icon: "✨",
-    description: "Glamorous sparkling backdrops for stunning photos"
+    description: "Our Sequin Panel Decoration adds a touch of glamour to any event, creating a sparkling backdrop that catches the light beautifully. Perfect for photos, it elevates your celebration with elegance.",
+    image: "/images/29.jpg",
+    hoverColor: "group-hover:bg-indigo-500/20"
   },
   {
     title: "Ring Decoration",
-    icon: "🌸",
-    description: "Exquisite ring decorations for elegant celebrations"
+    description: "Create a breathtaking atmosphere with our exquisite ring decorations. Perfect for any occasion, our designs add elegance and charm, making your event truly memorable. Elevate your celebration with stunning ring decor!",
+    image: "/images/30.jpg",
+    hoverColor: "group-hover:bg-teal-500/20"
   },
   {
     title: "Themed Decoration",
-    icon: "🎭",
-    description: "Custom themed setups tailored to your unique vision"
+    description: "Bring your vision to life with our themed decorations, tailored to create the perfect atmosphere for any occasion. From whimsical to elegant, we ensure every detail enhances your celebration's uniqueness.",
+    image: "/images/21.jpg",
+    hoverColor: "group-hover:bg-rose-500/20"
   }
 ];
 
 const ServicesGrid = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-secondary/50 to-muted/30">
-      <div className="container mx-auto px-4 max-w-7xl">
+    <section className="py-20 bg-white">
+      <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Our Services
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            From birthdays to proposals, we create magical moments with our comprehensive decoration services
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Our Services</h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Discover our comprehensive range of decoration services designed to make every celebration special
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full mt-6" />
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <Card 
-              key={index} 
-              className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-2 border-0 bg-white/80 backdrop-blur-sm"
-            >
-              <CardContent className="p-6 text-center">
-                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                  {service.icon}
-                </div>
-                <h3 className="font-bold text-lg mb-3 text-foreground group-hover:text-primary transition-colors">
+            <Card key={index} className="group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden">
+              <div className="relative overflow-hidden">
+                <img 
+                  src={service.image} 
+                  alt={service.title}
+                  className="w-full h-64 object-cover group-hover:scale-110 transition-all duration-500 filter group-hover:brightness-110 group-hover:contrast-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
+                <div className={`absolute inset-0 ${service.hoverColor} opacity-0 group-hover:opacity-100 transition-all duration-500`} />
+              </div>
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-pink-600 transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <p className="text-gray-600 mb-4 line-clamp-3">
                   {service.description}
                 </p>
-                
-                {/* Hover effect gradient border */}
-                <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur-sm" />
+                <Link to={`/service/${encodeURIComponent(service.title)}`}>
+                  <Button className="w-full bg-pink-600 hover:bg-pink-700 text-white font-semibold">
+                    Learn More
+                  </Button>
+                </Link>
               </CardContent>
             </Card>
           ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <button className="bg-gradient-to-r from-primary to-accent text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-elegant hover:scale-105 transition-all duration-300">
-            View All Services
-          </button>
         </div>
       </div>
     </section>
