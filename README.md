@@ -20,7 +20,7 @@ Event Analytics: Gain insights and make data-driven decisions.
 
 🌐 Live Demo
 
-Explore the live application here: event-maker-site.vercel.app
+Explore the live application here: https://event-maker-site.vercel.app/
 
 🛠️ Tech Stack
 
@@ -53,3 +53,4 @@ npm run dev
 
 This project is licensed under the MIT License - see the LICENSE
  file for details.
+
