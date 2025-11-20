@@ -1,6 +1,10 @@
 import { Button } from '@/components/ui/button';
+import { useState } from 'react';
+import BookingModal from './BookingModal';
 
 const CallToAction = () => {
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+
   return (
     <section className="py-20 bg-gradient-to-r from-pink-600 via-purple-600 to-pink-600 relative overflow-hidden">
       {/* Decorative elements */}
@@ -21,11 +25,19 @@ const CallToAction = () => {
             Transform your event with elegant, custom decorations. Let us bring your vision to life – Book Today!
           </p>
           
-          <Button className="bg-white text-pink-600 hover:bg-gray-100 text-lg px-8 py-4 rounded-full shadow-xl transform hover:scale-105 transition-all duration-300 font-bold">
+          <Button 
+            onClick={() => setIsBookingModalOpen(true)}
+            className="bg-white text-pink-600 hover:bg-gray-100 text-lg px-8 py-4 rounded-full shadow-xl transform hover:scale-105 transition-all duration-300 font-bold"
+          >
             Book Your Event Now
           </Button>
         </div>
       </div>
+      
+      <BookingModal 
+        isOpen={isBookingModalOpen} 
+        onClose={() => setIsBookingModalOpen(false)} 
+      />
     </section>
   );
 };

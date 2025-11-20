@@ -1,8 +1,10 @@
 import { Button } from '@/components/ui/button';
 import { useState, useEffect } from 'react';
+import BookingModal from './BookingModal';
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const slides = [
     {
       image: '/images/1.jpg',
@@ -45,7 +47,10 @@ const HeroSection = () => {
                 <p className="text-xl md:text-2xl text-white/90 mb-8 font-semibold">
                   {slide.subtitle}
                 </p>
-                <Button className="bg-pink-600 hover:bg-pink-700 text-white text-lg px-8 py-4 rounded-full shadow-xl transform hover:scale-105 transition-all duration-300 font-bold">
+                <Button 
+                  onClick={() => setIsBookingModalOpen(true)}
+                  className="bg-pink-600 hover:bg-pink-700 text-white text-lg px-8 py-4 rounded-full shadow-xl transform hover:scale-105 transition-all duration-300 font-bold"
+                >
                   Book Now
                 </Button>
               </div>
@@ -66,6 +71,11 @@ const HeroSection = () => {
           />
         ))}
       </div>
+      
+      <BookingModal 
+        isOpen={isBookingModalOpen} 
+        onClose={() => setIsBookingModalOpen(false)} 
+      />
     </section>
   );
 };

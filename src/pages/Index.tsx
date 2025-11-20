@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ExplosionIntro from '../components/ExplosionIntro';
 import HeroSection from '../components/HeroSection';
 import ServicesGrid from '../components/ServicesGrid';
@@ -17,6 +17,17 @@ const Index = () => {
   const handleExplosionComplete = () => {
     setShowContent(true);
   };
+
+  useEffect(() => {
+    if (showContent && window.location.hash === '#services') {
+      setTimeout(() => {
+        const servicesSection = document.getElementById('services-section');
+        if (servicesSection) {
+          servicesSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, [showContent]);
 
   return (
     <>
